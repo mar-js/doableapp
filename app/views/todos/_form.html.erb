@@ -26,6 +26,11 @@
     <%= form.check_box :completed %>
   </div>
 
+    <div>
+    <%= form.label :priority, style: "display: block" %>
+    <%= form.number_field :priority %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
