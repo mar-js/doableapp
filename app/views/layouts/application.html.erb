@@ -30,8 +30,12 @@
       <p class="flash"><%= flash[:notice ]%></p>
     <% end %>
     <header>
-      <%= link_to "Projects", projects_path %>
-      <%= link_to "Todos", todos_path %>
+      <% unless current_page?(controller: "projects") %>
+        <%= link_to "Projects", projects_path %>
+      <% end %>
+      <% unless current_page?(controller: "todos") %>
+        <%= link_to "Todos", todos_path %>
+      <% end %>
     </header>
     <%= yield %>
   </body>
