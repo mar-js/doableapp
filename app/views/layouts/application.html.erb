@@ -30,6 +30,7 @@
       <p class="flash"><%= flash[:notice ]%></p>
     <% end %>
     <header>
+      <%= link_to "Doable", root_path %>
       <% unless current_page?(controller: :projects) %>
         <%= link_to "Projects", projects_path %>
       <% end %>
