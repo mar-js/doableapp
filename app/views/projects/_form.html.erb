@@ -1,6 +1,6 @@
 <%= form_with model: project do |f|%>
   <% if project.errors.any? %>
-    <div class="errors">
+    <div>
       <h2><%= pluralize(project.errors.count, "error") %> prohibited</h2>
       <ul>
         <% project.errors.full_messages.each do |message| %>
@@ -11,12 +11,12 @@
   <% end %>
 
 
-  <div class="field">
+  <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
-  <div class="actions">
+  <div>
     <%= f.submit %>
   </div>
 <% end %>
