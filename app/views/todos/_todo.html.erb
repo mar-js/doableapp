@@ -24,6 +24,8 @@
     <%= link_to todo.project.name, project_path(todo.project) %>
   </div>
 
-  <%= link_to "View this todo", todo_path(todo) %>
-  <hr>
+  <% unless current_page?(todo_path(todo))%>
+    <%= link_to "View this todo", todo_path(todo) %>
+    <hr>
+  <% end %>
 </div>

@@ -9,6 +9,8 @@
     <%= project.active %>
   </div>
 
-  <%= link_to "View this project", project_path(project) %>
-  <hr>
+  <% unless current_page?(project_path(project)) %>
+    <%= link_to "View this project", project_path(project) %>
+    <hr>
+  <% end %>
 </div>
