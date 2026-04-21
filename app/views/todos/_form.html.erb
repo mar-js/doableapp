@@ -1,6 +1,6 @@
 <%= form_with(model: todo) do |form| %>
   <% if todo.errors.any? %>
-    <div style="color: red">
+    <div>
       <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
 
       <ul>
@@ -12,27 +12,27 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label :description %>
     <%= form.textarea :description %>
   </div>
 
   <div>
-    <%= form.label :completed, style: "display: block" %>
+    <%= form.label :completed %>
     <%= form.check_box :completed %>
   </div>
 
   <div>
-    <%= form.label :priority, style: "display: block" %>
+    <%= form.label :priority %>
     <%= form.number_field :priority %>
   </div>
 
   <div>
-    <%= form.label :project_id, style: "display: block" %>
+    <%= form.label :project_id %>
     <%= form.collection_select :project_id, Project.all, :id, :name, prompt: "Select a project" %>
   </div>
 
