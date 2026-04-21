@@ -23,5 +23,7 @@
     <strong>Project:</strong>
     <%= link_to todo.project.name, project_path(todo.project) %>
   </div>
+
+  <%= link_to "View this todo", todo_path(todo) %>
   <hr>
 </div>
