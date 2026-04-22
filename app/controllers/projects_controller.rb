@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    set_project
   end
 
   def new
@@ -23,11 +23,11 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
+    set_project
   end
 
   def update
-    @project = Project.find(params[:id])
+    set_project
 
     if @project.update(project_params)
       flash[:notice] = "Project UPDATED successfully!"
@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
+    set_project
 
     @project.destroy
     flash[:notice] = "Project DELETED successfully!"
@@ -46,6 +46,10 @@ class ProjectsController < ApplicationController
   end
 
   private
+    def set_project
+      @project = Project.find(params[:id])
+    end
+
     def project_params
       params.require(:project).permit(:name, :active)
     end
