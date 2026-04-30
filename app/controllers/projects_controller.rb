@@ -1,19 +1,20 @@
 class ProjectsController < ApplicationController
+  before_action :require_authentication
   before_action :set_project, only: %i[ show edit update destroy ]
 
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   def show
   end
 
   def new
-    @project = Project.new()
+    @project = current_user.projects.new
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
 
     if @project.save
       flash[:notice] = "Project CREATED successfully!"
@@ -38,15 +39,16 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     flash[:notice] = "Project DESTROYED successfully!"
-    redirect_to project_path()
+    redirect_to projects_path
   end
 
   private
-    def set_project
-      @project = Project.find(params[:id])
-    end
 
-    def project_params
-      params.require(:project).permit(:name, :active)
-    end
+  def set_project
+    @project = current_user.projects.find(params[:id])
+  end
+
+  def project_params
+    params.require(:project).permit(:name, :active)
+  end
 end
