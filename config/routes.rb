@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "pages#home"
-  resource :session
+  resource :session, only: [ :new, :create, :destroy ]
   resource :register
   resources :passwords, param: :token
   resources :todos
