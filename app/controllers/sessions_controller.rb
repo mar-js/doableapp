@@ -15,7 +15,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    terminate_session
+    terminate_session if Current.session
+    reset_session
+    flash[:notice] = "You have logged out"
     redirect_to new_session_path, status: :see_other
   end
 end
