@@ -27,11 +27,13 @@
 
   <body>
     <% if flash[:notice] %>
-      <p><%= flash[:notice ]%></p>
+      <p><%= flash[:notice]%></p>
     <% end %>
     <header>
       <%= link_to "Doable", root_path %>
-      <%= button_to "Sign out", session_path, method: :delete %>
+      <% if Current.session %>
+        <%= button_to "Sign out", session_path, method: :delete %>
+      <% end %>
       <nav>
         <% unless current_page?(controller: :projects) %>
           <%= link_to "Projects", projects_path %>
