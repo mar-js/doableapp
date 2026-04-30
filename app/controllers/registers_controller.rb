@@ -10,7 +10,7 @@ class RegistersController < ApplicationController
 
     if @user.save
       reset_session
-      session[:user_id] = @user.id
+      start_new_session_for(@user)
       flash[:notice] = "Project REGISTER successfully!"
       redirect_to root_path
     else
