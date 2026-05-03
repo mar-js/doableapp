@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @projects = Project.all
-    @todos = Todo.all
+    @projects = current_user.projects
+    @todos = current_user.todos.includes(:project)
   end
 end
