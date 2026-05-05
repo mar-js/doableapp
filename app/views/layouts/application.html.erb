@@ -32,6 +32,9 @@
     <header>
       <%= link_to "Doable", root_path %>
       <% if Current.session %>
+        <%= link_to "/", class: "btn btn-icon", title: "Mi perfil" do %>
+          <%= svg_icon("user", class: "icon-user", aria_label: "Mi perfil") %>
+        <% end %>
         <%= button_to "Sign out", session_path, method: :delete %>
       <% end %>
       <nav>
