@@ -41,8 +41,10 @@
         <% unless current_page?(controller: :projects) %>
           <%= link_to "Projects", projects_path %>
         <% end %>
-        <% unless current_page?(controller: :todos) %>
-          <%= link_to "Todos", todos_path %>
+        <% if @todos %>
+          <% unless current_page?(controller: :todos) %>
+            <%= link_to "Todos", todos_path %>
+          <% end %>
         <% end %>
       </nav>
     </header>
