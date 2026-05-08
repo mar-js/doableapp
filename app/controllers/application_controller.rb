@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
     end
 
     def set_data
+      return unless current_user
+
       @projects = current_user.projects
       @todos = current_user.todos.includes(:project)
     end
