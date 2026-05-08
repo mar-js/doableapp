@@ -36,17 +36,17 @@
           <%= svg_icon("user", aria_label: "Mi perfil") %>
         <% end %>
         <%= button_to "Sign out", session_path, method: :delete %>
-      <% end %>
-      <nav>
-        <% unless current_page?(controller: :projects) %>
-          <%= link_to "Projects", projects_path %>
-        <% end %>
-        <% if @todos %>
-          <% unless current_page?(controller: :todos) %>
-            <%= link_to "Todos", todos_path %>
+        <nav>
+          <% unless current_page?(controller: :projects) %>
+            <%= link_to "Projects", projects_path %>
           <% end %>
-        <% end %>
-      </nav>
+          <% if @projects.present? %>
+            <% unless current_page?(controller: :todos) %>
+              <%= link_to "Todos", todos_path %>
+            <% end %>
+          <% end %>
+        </nav>
+      <% end %>
     </header>
     <%= yield %>
   </body>
