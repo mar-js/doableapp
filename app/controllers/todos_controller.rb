@@ -47,11 +47,11 @@ class TodosController < ApplicationController
   private
 
   def set_project
-    @project = current_user.projects.find(params[:project_id])
+    @project = current_user.projects.find_by(params[:id])
   end
 
   def set_todo
-    @todo = Todo.joins(:project).where(projects: { user_id: current_user.id }).find(params[:id])
+    @todo = Todo.joins(:project).where(projects: { user_id: current_user.id }).find_by(params[:id])
   end
 
   def todo_params
