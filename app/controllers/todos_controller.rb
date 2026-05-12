@@ -19,7 +19,7 @@ class TodosController < ApplicationController
 
     if @todo.save
       flash[:notice] = "Todo CREATED successfully!"
-      redirect_to project_todo_path(@project, @todo)
+      redirect_to todo_path(@todo)
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class TodosController < ApplicationController
   def update
     if @todo.update(todo_params)
       flash[:notice] = "Todo UPDATED successfully!"
-      redirect_to project_todo_path(@todo.project, @todo)
+      redirect_to todo_path(@todo)
     else
       render :edit, status: :unprocessable_entity
     end
