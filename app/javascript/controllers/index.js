@@ -1,6 +1,4 @@
-// Import and register all your controllers from the importmap via controllers/**/*_controller
 import { application } from "./application"
-import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+import HelloController from "./hello_controller"
 
-const context = require.context("./", true, /\.js$/)
-eagerLoadControllersFrom(context, application)
+application.register("hello", HelloController)
