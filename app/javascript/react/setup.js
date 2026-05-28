@@ -33,6 +33,11 @@ function unmountReactComponents() {
   })
 }
 
-document.addEventListener("DOMContentLoaded", mountReactComponents)
 document.addEventListener("turbo:load", mountReactComponents)
 document.addEventListener("turbo:before-cache", unmountReactComponents)
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", mountReactComponents)
+} else {
+  mountReactComponents()
+}
