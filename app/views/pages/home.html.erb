@@ -1,7 +1,7 @@
 <%= react_component "Title" %>
 <main>
   <section>
-    <h2>Projects</h2>
+    <%= react_component "Subtitle", props: { text: "Projects" } %>
     <ol>
       <% @projects.each do |project| %>
         <li><%= project.name %></li>
@@ -9,7 +9,7 @@
     </ol>
   </section>
   <section>
-    <h2>Todos</h2>
+    <%= react_component "Subtitle", props: { text: "Todos" } %>
     <ol>
       <% @todos.each do |todo| %>
         <li><%= todo.name %></li>
