@@ -1,6 +1,4 @@
-function csrfToken() {
-  return document.querySelector('meta[name="csrf-token"]')?.content
-}
+import { csrfToken } from "../utils/csrf"
 
 export default function Login({
   action,
@@ -10,7 +8,7 @@ export default function Login({
 }) {
   return (
     <>
-      <h2>Login</h2>
+      <h1>Login</h1>
       <form action={action} method="post" acceptCharset="UTF-8">
         <input type="hidden" name="authenticity_token" value={csrfToken()} />
         <input
