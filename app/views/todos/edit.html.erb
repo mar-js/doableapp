@@ -1,12 +1,7 @@
 <% content_for :title, "Editing todo" %>
 
-<h1>Editing todo</h1>
-
-<%= render "form", todo: @todo %>
-
-<br>
-
-<div>
-  <%= link_to "Show this todo", @todo %> |
-  <%= link_to "Back to todos", todos_path %>
-</div>
+<%= react_component "TodoEdit", props: {
+  form: react_todo_form(@todo),
+  showPath: todo_path(@todo),
+  todosPath: todos_path
+} %>
