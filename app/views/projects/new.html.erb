@@ -1,11 +1,6 @@
 <% content_for :title, "New project" %>
 
-<h1>New Project</h1>
-
-<%= render "form", project: @project %>
-
-<br>
-
-<div>
-  <%= link_to "Back to projects", projects_path %>
-</div>
+<%= react_component "ProjectNew", props: {
+  form: react_project_form(@project),
+  projectsPath: projects_path
+} %>
