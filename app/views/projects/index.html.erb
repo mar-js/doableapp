@@ -1,11 +1,6 @@
 <% content_for :title, "Projects" %>
 
-<h1>Projects</h1>
-
-<div id="Projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-  <% end %>
-</div>
-
-<%= link_to "New project", new_project_path %>
+<%= react_component "ProjectsIndex", props: {
+  projects: @projects.map { |project| react_project_card(project, show_view_link: true) },
+  newProjectPath: new_project_path
+} %>
