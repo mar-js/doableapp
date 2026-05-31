@@ -26,25 +26,8 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <p><%= flash[:notice]%></p>
-    <% end %>
-    <header>
-      <%= link_to "Doable", root_path %>
-      <% if Current.session %>
-        <%= button_to "Sign out", session_path, method: :delete %>
-        <nav>
-          <% unless current_page?(controller: :projects) %>
-            <%= link_to "Projects", projects_path %>
-          <% end %>
-          <% if @projects.present? %>
-            <% unless current_page?(controller: :todos) %>
-              <%= link_to "Todos", todos_path %>
-            <% end %>
-          <% end %>
-        </nav>
-      <% end %>
-    </header>
+    <%= react_component "FlashNotice", props: { notice: flash[:notice] } %>
+    <%= react_component "AppHeader", props: react_app_header_props %>
     <%= yield %>
   </body>
 </html>
