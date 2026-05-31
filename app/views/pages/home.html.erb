@@ -1,19 +1,4 @@
-<%= react_component "Title" %>
-<main>
-  <section>
-    <%= react_component "Subtitle", props: { text: "Projects" } %>
-    <ol>
-      <% @projects.each do |project| %>
-        <li><%= project.name %></li>
-      <% end %>
-    </ol>
-  </section>
-  <section>
-    <%= react_component "Subtitle", props: { text: "Todos" } %>
-    <ol>
-      <% @todos.each do |todo| %>
-        <li><%= todo.name %></li>
-      <% end %>
-    </ol>
-  </section>
-</main>
+<%= react_component "Home", props: {
+  projects: @projects.map { |project| { id: project.id, name: project.name } },
+  todos: @todos.map { |todo| { id: todo.id, name: todo.name } }
+} %>
