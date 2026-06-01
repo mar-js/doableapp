@@ -1,17 +1,17 @@
 class TodosController < ApplicationController
   before_action :require_authentication
-  before_action :set_project, only: %i[index new create]
+  before_action :set_project, only: %i[create]
   before_action :set_todo, only: %i[show edit update destroy]
 
   def index
-    @todos = @project.todos.includes(:project).order(created_at: :desc)
+    @todos = current_user.todos.includes(:project).order(created_at: :desc)
   end
 
   def show
   end
 
   def new
-    @todo = @project.todos.new
+    @todo = Todo.new
   end
 
   def create
@@ -38,20 +38,19 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    project = @todo.project
     @todo.destroy
     flash[:notice] = "Todo DESTROYED successfully!"
-    redirect_to project_todos_path(project)
+    redirect_to todos_path
   end
 
   private
 
   def set_project
-    @project = current_user.projects.find_by(params[:id])
+    @project = current_user.projects.find_by(id: params.dig(:todo, :project_id)) || current_user.projects.first
   end
 
   def set_todo
-    @todo = Todo.joins(:project).where(projects: { user_id: current_user.id }).find_by(params[:id])
+    @todo = Todo.joins(:project).where(projects: { user_id: current_user.id }).find_by(id: params[:id])
   end
 
   def todo_params
