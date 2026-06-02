@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   private
     def current_user
+      return unless Current.session
+
       @current_user ||= User.find_by(id: Current.session.user_id)
     end
 
