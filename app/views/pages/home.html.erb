@@ -1,4 +1,4 @@
-<%= react_component "Home", props: {
+<%= react_component "pages/home", props: {
   projects: @projects.map { |project| { id: project.id, name: project.name } },
   todos: @todos.map { |todo| { id: todo.id, name: todo.name } }
 } %>
