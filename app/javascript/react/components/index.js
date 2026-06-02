@@ -1,4 +1,5 @@
 import layoutsAppHeader from "./layouts/app_header"
+import layoutsAppFooter from "./layouts/app_footer"
 import layoutsFlashNotice from "./layouts/flash_notice"
 import pagesHome from "./pages/home"
 import passwordsEdit from "./passwords/edit"
@@ -17,6 +18,7 @@ import todosShow from "./todos/show"
 export const components = {
   "layouts/flash_notice": layoutsFlashNotice,
   "layouts/app_header": layoutsAppHeader,
+  "layouts/app_footer": layoutsAppFooter,
   "pages/home": pagesHome,
   "sessions/new": sessionsNew,
   "registers/new": registersNew,
