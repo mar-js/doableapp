@@ -1,6 +1,6 @@
 <% content_for :title, "New project" %>
 
-<%= react_component "ProjectNew", props: {
+<%= react_component "projects/new", props: {
   form: react_project_form(@project),
   projectsPath: projects_path
 } %>
