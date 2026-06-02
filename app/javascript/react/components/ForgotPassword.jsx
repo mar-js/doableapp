@@ -3,7 +3,7 @@ import { csrfToken } from "../utils/csrf"
 export default function ForgotPassword({ action, emailAddress = "", alert }) {
   return (
     <>
-      <h1>Forgot your password?</h1>
+      <h3>Forgot your password?</h3>
       {alert && <div style={{ color: "red" }}>{alert}</div>}
       <form action={action} method="post" acceptCharset="UTF-8">
         <input type="hidden" name="authenticity_token" value={csrfToken()} />
