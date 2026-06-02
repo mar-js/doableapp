@@ -12,6 +12,7 @@ export default function AppHeader({
   return (
     <header>
       <a href={rootPath}>Doable</a>
+      <br />
       {signedIn && (
         <>
           <form action={signOutPath} method="post" acceptCharset="UTF-8" style={{ display: "inline" }}>
