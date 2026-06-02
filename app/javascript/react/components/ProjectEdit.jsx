@@ -3,7 +3,7 @@ import ProjectForm from "./forms/ProjectForm"
 export default function ProjectEdit({ form, showPath, projectsPath }) {
   return (
     <>
-      <h1>Editing Project</h1>
+      <h3>Editing Project</h3>
       <ProjectForm {...form} />
       <br />
       <div>
