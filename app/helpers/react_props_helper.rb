@@ -46,7 +46,7 @@ module ReactPropsHelper
       completed: todo.completed,
       priority: todo.priority,
       projectId: todo.project_id,
-      projects: current_user.projects.map { |project| { id: project.id, name: project.name } },
+      projects: react_current_user&.projects&.map { |project| { id: project.id, name: project.name } } || [],
       errorsTitle: "#{pluralize(todo.errors.count, 'error')} prohibited this todo from being saved:",
       errors: todo.errors.map(&:full_message),
       submitLabel: todo.persisted? ? "Update Todo" : "Create Todo"
@@ -56,12 +56,24 @@ module ReactPropsHelper
   def react_app_header_props
     {
       rootPath: root_path,
-      signedIn: Current.session.present?,
+      signedIn: signed_in,
       signOutPath: session_path,
       projectsPath: projects_path,
       todosPath: todos_path,
-      showProjectsLink: !current_page?(controller: "projects"),
-      showTodosLink: current_user&.projects&.any? && !current_page?(controller: "todos")
+      showProjectsLink: signed_in && !current_page?(controller: "projects"),
+      showTodosLink: signed_in && react_current_user&.projects&.any? && !current_page?(controller: "todos")
     }
+  end
+
+  private
+
+  def signed_in
+    return @signed_in if defined?(@signed_in)
+
+    @signed_in = Current.session.present?
+  end
+
+  def react_current_user
+    current_user if signed_in
   end
 end
