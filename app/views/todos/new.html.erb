@@ -1,6 +1,6 @@
 <% content_for :title, "New todo" %>
 
-<%= react_component "TodoNew", props: {
+<%= react_component "todos/new", props: {
   form: react_todo_form(@todo),
   todosPath: todos_path
 } %>
