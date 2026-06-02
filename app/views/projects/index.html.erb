@@ -1,6 +1,6 @@
 <% content_for :title, "Projects" %>
 
-<%= react_component "ProjectsIndex", props: {
+<%= react_component "projects/index", props: {
   projects: @projects.map { |project| react_project_card(project, show_view_link: true) },
   newProjectPath: new_project_path
 } %>
