@@ -3,7 +3,7 @@ import { csrfToken } from "../utils/csrf"
 export default function Register({ action, emailAddress = "", loginPath }) {
   return (
     <>
-      <h1>Register</h1>
+      <h3>Register</h3>
       <form action={action} method="post" acceptCharset="UTF-8">
         <input type="hidden" name="authenticity_token" value={csrfToken()} />
         <input
