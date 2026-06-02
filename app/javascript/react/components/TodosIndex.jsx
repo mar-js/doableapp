@@ -3,7 +3,7 @@ import TodoCard from "./shared/TodoCard"
 export default function TodosIndex({ todos, newTodoPath }) {
   return (
     <>
-      <h1>Todos</h1>
+      <h3>Todos</h3>
       <div id="todos">
         {todos.map((todo) => (
           <TodoCard key={todo.id} {...todo} />
