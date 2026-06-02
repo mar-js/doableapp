@@ -1,6 +1,6 @@
 <% content_for :title, "Editing project" %>
 
-<%= react_component "ProjectEdit", props: {
+<%= react_component "projects/edit", props: {
   form: react_project_form(@project),
   showPath: project_path(@project),
   projectsPath: projects_path
