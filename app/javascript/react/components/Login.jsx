@@ -8,7 +8,7 @@ export default function Login({
 }) {
   return (
     <>
-      <h1>Login</h1>
+      <h3>Login</h3>
       <form action={action} method="post" acceptCharset="UTF-8">
         <input type="hidden" name="authenticity_token" value={csrfToken()} />
         <input
