@@ -1,6 +1,6 @@
 <% content_for :title, "Editing todo" %>
 
-<%= react_component "TodoEdit", props: {
+<%= react_component "todos/edit", props: {
   form: react_todo_form(@todo),
   showPath: todo_path(@todo),
   todosPath: todos_path
