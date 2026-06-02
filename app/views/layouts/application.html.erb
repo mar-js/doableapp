@@ -27,5 +27,6 @@
     <%= react_component "layouts/flash_notice", props: { notice: flash[:notice] } %>
     <%= react_component "layouts/app_header", props: react_app_header_props %>
     <%= yield %>
+    <%= react_component "layouts/app_footer" %>
   </body>
 </html>
