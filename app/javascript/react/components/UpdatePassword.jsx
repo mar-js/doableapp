@@ -3,7 +3,7 @@ import { csrfToken } from "../utils/csrf"
 export default function UpdatePassword({ action, alert }) {
   return (
     <>
-      <h1>Update your password</h1>
+      <h3>Update your password</h3>
       {alert && <div style={{ color: "red" }}>{alert}</div>}
       <form action={action} method="post" acceptCharset="UTF-8">
         <input type="hidden" name="_method" value="put" />
