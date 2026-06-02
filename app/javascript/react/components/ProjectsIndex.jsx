@@ -3,7 +3,7 @@ import ProjectCard from "./shared/ProjectCard"
 export default function ProjectsIndex({ projects, newProjectPath }) {
   return (
     <>
-      <h1>Projects</h1>
+      <h3>Projects</h3>
       <div id="Projects">
         {projects.map((project) => (
           <ProjectCard key={project.id} {...project} />
