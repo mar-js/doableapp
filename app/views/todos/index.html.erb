@@ -1,6 +1,6 @@
 <% content_for :title, "Todos" %>
 
-<%= react_component "TodosIndex", props: {
+<%= react_component "todos/index", props: {
   todos: @todos.map { |todo| react_todo_card(todo, show_view_link: true) },
   newTodoPath: new_todo_path
 } %>
