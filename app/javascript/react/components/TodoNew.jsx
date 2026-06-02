@@ -3,7 +3,7 @@ import TodoForm from "./forms/TodoForm"
 export default function TodoNew({ form, todosPath }) {
   return (
     <>
-      <h1>New todo</h1>
+      <h3>New todo</h3>
       <TodoForm {...form} />
       <br />
       <div>
